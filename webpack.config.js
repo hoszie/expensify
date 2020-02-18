@@ -25,7 +25,7 @@ module.exports = {
   devServer: {
     contentBase: path.join(__dirname, 'public'),
     host: '0.0.0.0',
-    historyApiFallback: true
+    historyApiFallback: true // tells it we are using client side routing. 
   }
 };
 
