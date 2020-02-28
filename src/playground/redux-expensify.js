@@ -86,8 +86,8 @@ const expensesReducer = (state = expensesReducerDefaultState, action) => {
           };
         } else {
           return expense;
-        }
-      })
+        };
+      });
     default:
       return state;
   }
@@ -169,15 +169,16 @@ store.subscribe(() => {
 });
 
 
-const expenseOne = store.dispatch(addExpense({ description: 'Rent', amount: 100, createdAt: 2, note: 'Fuck off cunt' }));
-const expenseTwo = store.dispatch(addExpense({ description: 'Coffee', amount: 500, createdAt: 1 }));
-const expenseThree = store.dispatch(addExpense({ description: 'Drug Money', amount: 1000, note: 'I need it, fuck off'}));
+const expenseOne = store.dispatch(addExpense({ description: 'Rent', amount: 100, createdAt: 3, note: 'Fuck off cunt' }));
+const expenseTwo = store.dispatch(addExpense({ description: 'Coffee', amount: 50000, createdAt: 2 }));
+const expenseThree = store.dispatch(addExpense({ description: 'Drug Money', amount: 1000, note: 'I need it, fuck off', createdAt: 7}));
+const expenseFour = store.dispatch(addExpense({ description: 'PartyTimes', amount: 100, createdAt: 100 }));
 store.dispatch(removeExpense({ id: expenseOne.expense.id }))
-store.dispatch(editExpense(expenseTwo.expense.id, { amount: 999 }))
+store.dispatch(editExpense(expenseTwo.expense.id, { amount: 999, note: 'Blow Me' }))
 // store.dispatch(setTextFilter('ee'));
-store.dispatch(sortByAmount());
+// store.dispatch(sortByAmount());
 // store.dispatch(setTextFilter('u'));
-// store.dispatch(sortByDate());
+store.dispatch(sortByDate());
 
 console.log(expenseThree);
 
