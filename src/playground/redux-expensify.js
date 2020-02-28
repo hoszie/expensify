@@ -137,7 +137,7 @@ const filtersReducer = (state = filtersReducerDefaultState, action) => {
 
 
 
-//Get visibile expenses
+//Get visibile expenses - takes two arguments. First the complete array of expenses and second, we need to know the filters. Destructure the filters creating variables for the individual onces.  
 const getVisibleExpenses = (expenses, { text, sortBy, startDate, endDate }) => {
   return expenses.filter((expense) => {
     const startDateMatch = typeof startDate !== 'number' || expense.createdAt >= startDate;
@@ -182,9 +182,11 @@ store.dispatch(sortByDate());
 
 console.log(expenseThree);
 
-// store.dispatch(setStartDate(2000));
+store.dispatch(setStartDate(4));
 // store.dispatch(setStartDate(0));
 // store.dispatch(setEndDate(1250));
+
+
 
 // const demoState = {
 //   expenses: [{
