@@ -1,14 +1,17 @@
 import { createStore, combineReducers } from 'redux';
 import uuid from 'uuid';
 
-//ADD_EXPENSE
+
+////    ACTION GENERATORS   ///////
+//ADD_EXPENSE - making the addExpense obj
 const addExpense = (
   { 
     description = '', 
     note = '', 
     amount = 0, 
     createdAt = 0 
-  } = {}) => ({
+  } = {}
+) => ({
     type: 'ADD_EXPENSE',
     expense: {
       id: uuid(),
@@ -72,21 +75,19 @@ const expensesReducer = (state = expensesReducerDefaultState, action) => {
         ...state,
         action.expense
       ];
-
-      case 'REMOVE_EXPENSE':
-        return state.filter(({ id }) => id != action.id);
-
-      case 'EDIT_EXPENSE':
-        return state.map((expense) => {
-          if (expense.id === action.id) {
-            return {
-              ...expense,
-              ...action.updates
-            };
-          } else {
-            return expense;
-          }
-        })
+    case 'REMOVE_EXPENSE':
+      return state.filter(({ id }) => id != action.id);
+    case 'EDIT_EXPENSE':
+      return state.map((expense) => {
+        if (expense.id === action.id) {
+          return {
+            ...expense,
+            ...action.updates
+          };
+        } else {
+          return expense;
+        }
+      })
     default:
       return state;
   }
@@ -157,7 +158,7 @@ const store = createStore(
   combineReducers({
     expenses: expensesReducer,
     filters: filtersReducer
-  })
+  })  
 );
 
 
@@ -169,15 +170,16 @@ store.subscribe(() => {
 
 
 const expenseOne = store.dispatch(addExpense({ description: 'Rent', amount: 100, createdAt: 2, note: 'Fuck off cunt' }));
-const expenseTwo = store.dispatch(addExpense({ description: 'Coffee', amount: 300, createdAt: 1 }));
-// store.dispatch(removeExpense({ id: expenseOne.expense.id }))
-// store.dispatch(editExpense(expenseTwo.expense.id, { amount: 500 }))
+const expenseTwo = store.dispatch(addExpense({ description: 'Coffee', amount: 500, createdAt: 1 }));
+const expenseThree = store.dispatch(addExpense({ description: 'Drug Money', amount: 1000, note: 'I need it, fuck off'}));
+store.dispatch(removeExpense({ id: expenseOne.expense.id }))
+store.dispatch(editExpense(expenseTwo.expense.id, { amount: 999 }))
 // store.dispatch(setTextFilter('ee'));
-// store.dispatch(setTextFilter('boooo'));
 store.dispatch(sortByAmount());
+// store.dispatch(setTextFilter('u'));
 // store.dispatch(sortByDate());
 
-// console.log(expenseOne);
+console.log(expenseThree);
 
 // store.dispatch(setStartDate(2000));
 // store.dispatch(setStartDate(0));
@@ -198,3 +200,12 @@ store.dispatch(sortByAmount());
 //     endDate: undefined 
 //   }
 // };
+
+
+////////////////////////////////////////////
+
+// Start with { createStore, combineReducers }. Write out some demoState such as your object that you are creating. Above. We will also need filters that will sort them in a certain way. Or select one that we are looking for. These are the two states that we are tracking and thus need redux to get the state for either expenses or the filters. 
+
+// We are using a single reducer for each root property in our store. A filterReducer for the filter object and an expensesReducer for the array or expenses objects. One reducer as works on the expenses property as if the filters doesn't exist and vice versa. And then combine them to make the complete store. 
+
+//Setting up reducers. Initiate the state and set up the switch statement. 

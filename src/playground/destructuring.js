@@ -38,9 +38,9 @@
 
 const address = ['3968 Yew St', 'Vancouver', 'British Columbia', 'V6L 3BL'];
 
-const [street, state, province, postcode] = address;
+const [street, city, province, postcode] = address;
 
-console.log(`You are in ${address[1]} ${address[2]}`);
+console.log(`You are in ${city} ${province}`);
 
 const item = ['Coffee (hot)', '$2.00', '$2.75', '$3.25'];
 
@@ -50,3 +50,14 @@ console.log(`A medium ${itemName} costs ${mediumPrice}`)
 
 
 
+// const person = {
+//   name: 'nik',
+//   age: 32,
+//   location: {
+//     city: 'Vancouver',
+//     temp: 9
+//   }
+// };
+
+// const {city, temp} = person.location;
+// console.log(`${city} is the fucking city and the temp is ${temp} you dumb cunt`)

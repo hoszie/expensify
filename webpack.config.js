@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  entry: './src/playground/hoc.js',
+  entry: './src/playground/redux-expensify.js',
   output: {
     path: path.join(__dirname, 'public'),
     filename: 'bundle.js'
@@ -17,9 +17,8 @@ module.exports = {
         'style-loader',
         'css-loader',
         'sass-loader'
-      ]
-    }
-  ]
+      ]}
+    ]
   },
   devtool: "cheap-module-eval-source-map",
   devServer: {
