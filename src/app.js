@@ -18,9 +18,9 @@ store.dispatch(addExpense({ description: 'drugs', amount: 2000}));
 
 // store.dispatch(setTextFilter('jism'));
 
-setTimeout(() => {
-  store.dispatch(setTextFilter('drugs'));
-}, 3000);
+// setTimeout(() => {
+//   store.dispatch(setTextFilter('drugs'));
+// }, 3000);
 
 const state = store.getState();
 const visibleExpenses = getVisibleExpenses(state.expenses, state.filters);
