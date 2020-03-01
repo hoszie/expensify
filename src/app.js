@@ -11,9 +11,12 @@ import './styles/styles.scss';
 
 const store = configureStore();
 
-store.dispatch(addExpense({ description: 'water bill '}));
-store.dispatch(addExpense({ description: 'gas bill '}));
-store.dispatch(setTextFilter('gas'));
+store.dispatch(addExpense({ description: 'water bill', amount: 23700, createdAt: '50000'}));
+store.dispatch(addExpense({ description: 'gas bill', amount: 21000}));
+store.dispatch(addExpense({ description: 'groveries', amount: 28000}));
+store.dispatch(addExpense({ description: 'drugs', amount: 20000}));
+
+store.dispatch(setTextFilter('jism'));
 
 setTimeout(() => {
   store.dispatch(setTextFilter('rent'));
