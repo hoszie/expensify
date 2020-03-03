@@ -10,21 +10,20 @@ module.exports = {
     rules: [{
       loader: 'babel-loader',
       test: /\.js$/,
-      exclude: /node_modles/
+      exclude: /node_modules/
     }, {
       test: /\.s?css$/,
       use: [
         'style-loader',
         'css-loader',
         'sass-loader'
-      ]}
-    ]
+      ]
+    }]
   },
-  devtool: "cheap-module-eval-source-map",
+  devtool: 'cheap-module-eval-source-map',
   devServer: {
     contentBase: path.join(__dirname, 'public'),
     host: '0.0.0.0',
     historyApiFallback: true
   }
 };
-

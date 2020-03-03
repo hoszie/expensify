@@ -6,14 +6,17 @@
   "scripts": {
     "serve": "live-server public/",
     "build": "webpack",
-    "dev-server": "webpack-dev-server"
+    "dev-server": "CHOKDIR_USEPOLLING=true webpack-dev-server"
   },
   "dependencies": {
+    "@babel/core": "^7.8.6",
     "babel-cli": "6.24.1",
     "babel-core": "6.25.0",
     "babel-loader": "7.1.1",
     "babel-plugin-transform-class-properties": "6.24.1",
     "babel-plugin-transform-object-rest-spread": "6.23.0",
+    "babel-plugin-transform-replace-object-assign": "^2.0.0",
+    "babel-preset-airbnb": "^4.4.0",
     "babel-preset-env": "1.5.2",
     "babel-preset-react": "6.24.1",
     "css-loader": "0.28.4",

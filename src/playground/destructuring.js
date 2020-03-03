@@ -1,22 +1,23 @@
-// console.log('destructuring');
+//
+// Object destructuring
+//
 
 // const person = {
-//   // name: 'Nick',
-//   age: 33,
+//   name: 'Andrew',
+//   age: 27,
 //   location: {
-//     city: 'Vancouver',
-//     temp: 9
+//     city: 'Philadelphia',
+//     temp: 88
 //   }
 // };
 
-// const { name = 'BillyBob', age } = person;
-// console.log(`${name} is ${age}.`);
+// const { name: firstName = 'Anonymous', age } = person;
+// console.log(`${firstName} is ${age}.`);
 
-// const {city, temp} = person.location;
-// if (person.location.city && person.location.temp) {
-//   console.log(`It's ${temp} in ${city}.`)
-// };
-
+// const { city, temp: temperature } = person.location;
+// if (city && temperature) {
+//   console.log(`It's ${temperature} in ${city}.`);
+// }
 
 // const book = {
 //   title: 'Ego is the Enemy',
@@ -26,38 +27,19 @@
 //   }
 // };
 
-// const { name: publisherName = 'Self Published' } = book.publisher;
+// const { name: publisherName = 'Self-Published' } = book.publisher;
 
-// console.log(publisherName);
+// console.log(publisherName); // Penguin, Self-Published
 
 //
 // Array destructuring
 //
 
+// const address = ['1299 S Juniper Street', 'Philadelphia', 'Pennsylvania', '19147'];
+// const [, city, state = 'New York'] = address;
+// console.log(`You are in ${city} ${state}.`);
 
-
-const address = ['3968 Yew St', 'Vancouver', 'British Columbia', 'V6L 3BL'];
-
-const [street, city, province, postcode] = address;
-
-console.log(`You are in ${city} ${province}`);
-
-const item = ['Coffee (hot)', '$2.00', '$2.75', '$3.25'];
-
+const item = ['Coffee (iced)', '$3.00', '$3.50', '$3.75'];
 const [itemName, , mediumPrice] = item;
 
-console.log(`A medium ${itemName} costs ${mediumPrice}`)
-
-
-
-// const person = {
-//   name: 'nik',
-//   age: 32,
-//   location: {
-//     city: 'Vancouver',
-//     temp: 9
-//   }
-// };
-
-// const {city, temp} = person.location;
-// console.log(`${city} is the fucking city and the temp is ${temp} you dumb cunt`)
+console.log(`A medium ${itemName} costs ${mediumPrice}`);
