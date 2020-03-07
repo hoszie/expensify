@@ -1,12 +1,12 @@
 import React from 'react';
 import { shallow } from 'enzyme'
 
-import Header from '../../components/Header';
+import NotFoundPage from '../../components/NotFoundPage';
 
 // react-test-renderer
 
-test('should render Header correctly', () => {
-  const wrapper = shallow(<Header />);
+test('should render NotFoundPage correctly', () => {
+  const wrapper = shallow(<NotFoundPage />);
   expect(wrapper).toMatchSnapshot();
   
   // expect(wrapper.find('h1').text()).toBe('Expensify');
